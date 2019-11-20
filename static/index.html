@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>财管嘉App下载</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .content {
+      padding-top: 100px;
+      text-align: center;
+    }
+    img {
+      width: 100px;
+      margin: 0 auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .app-download {
+      background-color: rgb(202, 0, 0);
+      width: 100px;
+      height: 30px;
+      border: 1px solid rgb(202, 0, 0);
+      border-radius: 20px;
+      margin: 10px;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    p {
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div class="left">
+          <img title="ios下载" alt="ios下载" src="./public/icon.png" />
+          <button class="app-download">
+            <a href="itms-services:///?action=download-manifest&url=https://static.jsfund.cn/finapp/manifest.plist">苹果手机下载</a>
+          </button>
+          <button class="app-download">
+            <a href="https://static.jsfund.cn/finapp/android.apk">安卓手机下载</a>
+          </button>
+        </div>
+        <p>需要在浏览器中打开此页面，再点击下载</p>
+  </div>
+</body>
+</html>
