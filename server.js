@@ -1,13 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('errorhandler');
+// const fs = require('fs');
+// const https = require('https');
+// const contentDisposition = require('content-disposition');
+// const destroy = require('destroy');
+// const onFinished = require('on-finished');
 const routes = require('./backend');
-const contentDisposition = require('content-disposition')
-const destroy = require('destroy')
-const fs = require('fs')
-const onFinished = require('on-finished')
 
 const app = express();
+
+// const key = fs.readFileSync('./openssl/myhttps.key');
+// const cert = fs.readFileSync('./openssl/myhttps.crt');
+
+// const options = {
+//     key: key,
+//     cert: cert
+// };
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -29,17 +38,18 @@ if ('production' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/android.apk', function (req, res) {
-  let filePath = './static/app.apk';
-  res.setHeader('Content-Type', 'application/octet-stream')
-  res.setHeader('Content-Disposition', contentDisposition(filePath))
+// app.get('/android.apk', function (req, res) {
+//   let filePath = './static/app.apk';
+//   res.setHeader('Content-Type', 'application/octet-stream')
+//   res.setHeader('Content-Disposition', contentDisposition(filePath))
  
-  // send file
-  let stream = fs.createReadStream(filePath)
-  stream.pipe(res)
-  onFinished(res, function () {
-    destroy(stream)
-  })
-})
+//   // send file
+//   let stream = fs.createReadStream(filePath)
+//   stream.pipe(res)
+//   onFinished(res, function () {
+//     destroy(stream)
+//   })
+// })
 
-app.listen(7220, () => console.log('listen on port 7220'));
+// https.createServer(options, app).listen(8000, () => console.log('listen on docker port 8000'));
+app.listen(8000, () => console.log('listen on docker port 8000'));
